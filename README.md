@@ -64,3 +64,5 @@ this method allows us to add whatevr custom logic we want to writing to the thro
 now we can use fields_for to generate fields for each existing tag and add text fields for new tags. show that.
 
 controlelr actoin for new/create stays the same.
+
+<a href='https://learn.co/lessons/has-many-through-forms-rails' data-visibility='hidden'>View this lesson on Learn.co</a>

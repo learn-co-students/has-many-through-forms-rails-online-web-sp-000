@@ -1,4 +1,3 @@
-
 # Has Many Through Forms Rails
 
 ## Objectives
@@ -11,6 +10,104 @@
 6. Define a conventional association writer for the primary model to properly instantiated associations based on the nested params association data.
 7. Define a custom association writer for the primary model to properly instantiated associations with custom logic (like unique by name) on the nested params association data.
 8. Use fields_for to generate the association fields.
+
+## Overview
+
+We've looked at the different ways we can interact with our associations through forms, as well as displaying data from more complex associations. In this lesson, we'll look at some different ways we can create data from our complex associations to make for a great user experience.
+
+## accepts_nested_attribues for through relationships
+
+Let's go back to our blog example - a post can have many categories, and a category can have many posts. How can we set this up? Yep, we'll need a join table. In this case, we'll call it "PostCategory"
+
+```ruby
+#app/models/post.rb
+class Post < ActiveRecord::Base
+  has_many :post_categories
+  has_many :categories, through: :post_categories
+end
+```
+
+```ruby
+#app/models/category.rb
+class Category < ActiveRecord::Base
+  has_many :post_categories
+  has_many :posts, through: :post_categories
+end
+
+```
+
+```ruby
+#app/models/post_category.rb
+class PostCategory < ActiveRecord::Base
+  belongs_to :post
+  belongs_to :category
+end
+```
+
+Now, let's make it so that our user can assign categories to a post when the post is created. When there was no join table and our post was directly related to it's category, it responded to a method called `category_ids=` that we were able to use to associate our models.
+
+Luckily, `has_many, through` functions exactly the same as a has_many relationship. Instances of our `Post` class still respond to a method called `category_ids=`. This means that we can use all of the same helper methods to generate our form.
+
+```erb
+#app/views/posts/_form.html.erb
+<%= form_for post do |f| %>
+  <%= f.label "Title" %>
+  <%= f.text_field :title %>
+  <%= f.label "Content" %>
+  <%= f.text_area :content %>
+  <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+  <%= f.submit %>
+<% end %>
+```
+
+This will generate a checkbox field for each Category in our database.
+
+```html
+<input type="checkbox" value="1" name="post[category_ids][]" id="post_category_ids_1">
+```
+
+In our controller, we've setup our `post_params` to expect an array. After submitting the form, we end up with `post_params` that look something like:
+
+```ruby
+{"title"=>"New Post", "content"=>"Some great content!!", "category_ids"=>["2", "3", ""]}
+```
+
+Let's check out the SQL that fires from creating our new post.
+
+```SQL
+INSERT INTO "posts" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "New Post"], ["content", "Some great content!!"], ["created_at", "2016-01-15 21:25:59.963430"], ["updated_at", "2016-01-15 21:25:59.963430"]]
+
+INSERT INTO "post_categories" ("category_id", "post_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["category_id", 2], ["post_id", 6], ["created_at", "2016-01-15 21:25:59.966654"], ["updated_at", "2016-01-15 21:25:59.966654"]]
+
+INSERT INTO "post_categories" ("category_id", "post_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["category_id", 3], ["post_id", 6], ["created_at", "2016-01-15 21:25:59.968301"], ["updated_at", "2016-01-15 21:25:59.968301"]]
+```
+This functions just like it did with a has many relationship, but instead of creating a new record in our categories table, Active Record is creating two new rows in our `post_categories` table. This means that we can interact with our higher-level models directly without having to think too much at all about our join table - ActiveRecord will manage that relationship for us behind the scenes.
+
+
+```ruby
+#app/controllers/post_controller.rb
+class PostsController < ApplicationController
+  # ...
+
+  private
+  def post_params
+    params.require(:post).permit(:title, :content, category_ids:[])
+  end
+```
+
+Now, let's check out what
+
+## Join Model Forms
+
+Sometimes, it may be appropriate for a user to create an instance of our join model directly. Think back to the hospital domain from our previous lab. It makes perfect sense that a user would go to `appointments/new` and fill out a form to create a new appointment.
+
+```erb
+<%= form_form @appointment do |f| %>
+  <%= f.datetime_select :appointment_datetime %>
+  <%= f.collection_select :doctor, Doctor.all, :id, :name %>
+  <%= f.collection_select :patient, Patient.all, :id, :name %>
+<% end %>
+```
 
 ## Outline
 

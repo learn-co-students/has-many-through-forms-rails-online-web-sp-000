@@ -1,0 +1,216 @@
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "ingredients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "quantity" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "recipe_id" integer) [0m
+  [1m[35m (1.7ms)[0m  CREATE TABLE "recipes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160114135651')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160113001505')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160113001515')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Started GET "/posts/new" for 127.0.0.1 at 2016-01-15 11:45:09 -0500
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Started GET "/posts/new" for 127.0.0.1 at 2016-01-15 11:45:09 -0500
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Started GET "/posts/new" for 127.0.0.1 at 2016-01-15 11:45:09 -0500
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Started GET "/recipes/new" for 127.0.0.1 at 2016-01-15 11:45:09 -0500
+Processing by RecipesController#new as HTML
+  Rendered recipes/_form.html.erb (16.8ms)
+  Rendered recipes/new.html.erb within layouts/application (24.5ms)
+Completed 200 OK in 1835ms (Views: 1803.4ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Started GET "/recipes/new" for 127.0.0.1 at 2016-01-15 11:45:11 -0500
+Processing by RecipesController#new as HTML
+  Rendered recipes/_form.html.erb (0.6ms)
+  Rendered recipes/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "ingredients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "quantity" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "recipe_id" integer) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX "index_ingredients_on_recipe_id" ON "ingredients" ("recipe_id")
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "author_id" integer) [0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX "index_posts_on_author_id" ON "posts" ("author_id")
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "recipes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160113060326')[0m
+  [1m[35m (1.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160113001427')
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160113001440')[0m
+  [1m[35m (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160113001505')
+  [1m[36m (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160113001515')[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160113004057')
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Started GET "/posts/new" for 127.0.0.1 at 2016-01-15 11:55:17 -0500
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (31.4ms)
+  Rendered posts/new.html.erb within layouts/application (39.0ms)
+Completed 200 OK in 593ms (Views: 573.8ms | ActiveRecord: 0.3ms)
+Started POST "/posts" for 127.0.0.1 at 2016-01-15 11:55:17 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"content"=>"Hello", "author_name"=>""}, "commit"=>"Create Post"}
+  [1m[35mAuthor Load (0.3ms)[0m  SELECT  "authors".* FROM "authors" WHERE "authors"."name" = ? LIMIT 1  [["name", ""]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "authors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", ""], ["created_at", "2016-01-15 16:55:17.644379"], ["updated_at", "2016-01-15 16:55:17.644379"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posts" ("content", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Hello"], ["author_id", 1], ["created_at", "2016-01-15 16:55:17.647889"], ["updated_at", "2016-01-15 16:55:17.647889"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/posts/1
+Completed 302 Found in 25ms (ActiveRecord: 2.0ms)
+Started GET "/posts/1" for 127.0.0.1 at 2016-01-15 11:55:17 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mAuthor Load (0.2ms)[0m  SELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/_post.html.erb (8.0ms)
+  Rendered posts/show.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 25ms (Views: 15.9ms | ActiveRecord: 0.3ms)
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Started GET "/posts/new" for 127.0.0.1 at 2016-01-15 11:55:17 -0500
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (1.5ms)
+  Rendered posts/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+Started POST "/posts" for 127.0.0.1 at 2016-01-15 11:55:17 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"content"=>"", "author_name"=>"Locke"}, "commit"=>"Create Post"}
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT  "authors".* FROM "authors" WHERE "authors"."name" = ? LIMIT 1  [["name", "Locke"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "authors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Locke"], ["created_at", "2016-01-15 16:55:17.697414"], ["updated_at", "2016-01-15 16:55:17.697414"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("content", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", ""], ["author_id", 1], ["created_at", "2016-01-15 16:55:17.699285"], ["updated_at", "2016-01-15 16:55:17.699285"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/posts/1
+Completed 302 Found in 6ms (ActiveRecord: 0.9ms)
+Started GET "/posts/1" for 127.0.0.1 at 2016-01-15 11:55:17 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mAuthor Load (0.0ms)[0m  SELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/_post.html.erb (0.8ms)
+  Rendered posts/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.1ms)
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" DESC LIMIT 1[0m
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Started GET "/posts/new" for 127.0.0.1 at 2016-01-15 11:55:17 -0500
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (2.1ms)
+  Rendered posts/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.0ms)
+Started POST "/posts" for 127.0.0.1 at 2016-01-15 11:55:17 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"content"=>"", "author_name"=>"Locke"}, "commit"=>"Create Post"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1mSELECT  "authors".* FROM "authors" WHERE "authors"."name" = ? LIMIT 1[0m  [["name", "Locke"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Locke"], ["created_at", "2016-01-15 16:55:17.729905"], ["updated_at", "2016-01-15 16:55:17.729905"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posts" ("content", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["content", ""], ["author_id", 1], ["created_at", "2016-01-15 16:55:17.731830"], ["updated_at", "2016-01-15 16:55:17.731830"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/posts/1
+Completed 302 Found in 6ms (ActiveRecord: 1.0ms)
+Started GET "/posts/1" for 127.0.0.1 at 2016-01-15 11:55:17 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mAuthor Load (0.1ms)[0m  [1mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/_post.html.erb (1.1ms)
+  Rendered posts/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.1ms)
+Started GET "/posts/new" for 127.0.0.1 at 2016-01-15 11:55:17 -0500
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (1.2ms)
+  Rendered posts/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" DESC LIMIT 1
+  [1m[36mAuthor Load (0.0ms)[0m  [1mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT 1[0m  [["id", 1]]
+Started POST "/posts" for 127.0.0.1 at 2016-01-15 11:55:17 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"content"=>"", "author_name"=>"Locke"}, "commit"=>"Create Post"}
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT  "authors".* FROM "authors" WHERE "authors"."name" = ? LIMIT 1  [["name", "Locke"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("content", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["content", ""], ["author_id", 1], ["created_at", "2016-01-15 16:55:17.760274"], ["updated_at", "2016-01-15 16:55:17.760274"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/posts/2
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+Started GET "/posts/2" for 127.0.0.1 at 2016-01-15 11:55:17 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPost Load (0.0ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mAuthor Load (0.0ms)[0m  [1mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/_post.html.erb (0.8ms)
+  Rendered posts/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.1ms)
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" DESC LIMIT 1
+  [1m[36mAuthor Load (0.0ms)[0m  [1mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.8ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Started GET "/recipes/new" for 127.0.0.1 at 2016-01-15 11:55:17 -0500
+Processing by RecipesController#new as HTML
+  Rendered recipes/_form.html.erb (3.4ms)
+  Rendered recipes/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 36ms (Views: 10.2ms | ActiveRecord: 0.7ms)
+Started POST "/recipes" for 127.0.0.1 at 2016-01-15 11:55:17 -0500
+Processing by RecipesController#create as HTML
+  Parameters: {"utf8"=>"✓", "recipe"=>{"title"=>"Chocolate Cake", "ingredients_attributes"=>{"0"=>{"name"=>"", "quantity"=>""}, "1"=>{"name"=>"", "quantity"=>""}}}, "commit"=>"Create Recipe"}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "recipes" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Chocolate Cake"], ["created_at", "2016-01-15 16:55:17.818493"], ["updated_at", "2016-01-15 16:55:17.818493"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/recipes/1
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms)
+Started GET "/recipes/1" for 127.0.0.1 at 2016-01-15 11:55:17 -0500
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIngredient Load (0.2ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?  ORDER BY "ingredients"."id" DESC LIMIT 1  [["recipe_id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  Rendered recipes/_form.html.erb (2.8ms)
+  Rendered recipes/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 13ms (Views: 8.6ms | ActiveRecord: 0.5ms)
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT  "recipes".* FROM "recipes"  ORDER BY "recipes"."id" DESC LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Started GET "/recipes/new" for 127.0.0.1 at 2016-01-15 11:55:17 -0500
+Processing by RecipesController#new as HTML
+  Rendered recipes/_form.html.erb (2.4ms)
+  Rendered recipes/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+Started POST "/recipes" for 127.0.0.1 at 2016-01-15 11:55:17 -0500
+Processing by RecipesController#create as HTML
+  Parameters: {"utf8"=>"✓", "recipe"=>{"title"=>"", "ingredients_attributes"=>{"0"=>{"name"=>"sugar", "quantity"=>"1 cup"}, "1"=>{"name"=>"vanilla", "quantity"=>"1 tablespoon"}}}, "commit"=>"Create Recipe"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "recipes" ("title", "created_at", "updated_at") VALUES (?, ?, ?)  [["title", ""], ["created_at", "2016-01-15 16:55:17.864064"], ["updated_at", "2016-01-15 16:55:17.864064"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "ingredients" ("name", "quantity", "recipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "sugar"], ["quantity", "1 cup"], ["recipe_id", 1], ["created_at", "2016-01-15 16:55:17.865423"], ["updated_at", "2016-01-15 16:55:17.865423"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "ingredients" ("name", "quantity", "recipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "vanilla"], ["quantity", "1 tablespoon"], ["recipe_id", 1], ["created_at", "2016-01-15 16:55:17.866715"], ["updated_at", "2016-01-15 16:55:17.866715"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/recipes/1
+Completed 302 Found in 7ms (ActiveRecord: 0.6ms)
+Started GET "/recipes/1" for 127.0.0.1 at 2016-01-15 11:55:17 -0500
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRecipe Load (0.1ms)[0m  SELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?  ORDER BY "ingredients"."id" DESC LIMIT 1[0m  [["recipe_id", 1]]
+  [1m[35mIngredient Load (0.8ms)[0m  SELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?  [["recipe_id", 1]]
+  Rendered recipes/_form.html.erb (6.9ms)
+  Rendered recipes/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 16ms (Views: 10.2ms | ActiveRecord: 1.0ms)
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT  "recipes".* FROM "recipes"  ORDER BY "recipes"."id" DESC LIMIT 1[0m
+  [1m[35mIngredient Load (0.1ms)[0m  SELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?  [["recipe_id", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1mSELECT  "recipes".* FROM "recipes"  ORDER BY "recipes"."id" DESC LIMIT 1[0m
+  [1m[35mIngredient Load (0.1ms)[0m  SELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?  [["recipe_id", 1]]
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m

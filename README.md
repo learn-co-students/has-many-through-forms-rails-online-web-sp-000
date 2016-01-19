@@ -149,7 +149,7 @@ Let's look at the html that this generated for us.
 <input type="text" name="post[categories_attributes][0][name]" id="post_categories_attributes_0_name">
 ```
 
-Our params hash will now have a key of `:categories_attriutes` nested under the key of `post`. Let's add that to our strong params and tell it to expect a key of `name` inside for the category's name.
+Our params hash will now have a key of `:categories_attributes` nested under the key of `post`. Let's add that to our strong params and tell it to expect a key of `name` inside for the category's name.
 
 ```ruby
 #app/controllers/post_controller.rb

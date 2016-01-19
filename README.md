@@ -61,7 +61,7 @@ end
 
 Now, let's make it so that our user can assign categories to a post when the post is created. We did this in a previous example without a join table. Our post was directly related to it's category, and the `categories` table had the foreign key for the post. Because of this, instances of our `post` class responded to a method called `category_ids=`. We called upon this method from our form helpers to build out a nested form.
 
-Luckily, `has_many, through` functions exactly the same as a has_many relationship. Instances of our `Post` class still respond to a method called `category_ids=`. This means that we can use all of the same helper methods to generate our form.
+Luckily, `has_many, through` functions exactly the same as a has_many relationship. Instances of our `Post` class still respond to a method called `category_ids=`. We'll use a helper method very similar to the collection_select we used previously.
 
 ```erb
 #app/views/posts/_form.html.erb

@@ -195,14 +195,14 @@ class Post < ActiveRecord::Base
   def categories_attributes=(category_attributes)
     category_attributes.values.each do |category_attribute|
       category = Category.find_or_create_by(category_attribute)
-      self.post_categories.build(category: category)
+      self.categories << category
     end
   end
 
 end
 ```
 
-Now, we're only creating a new category if it doesn't already exist with the current name. Afterwords, we're creating a new instance of our `PostTag` class ourselves - this will get saved to the database when our `Post` gets saved. This is exactly what ActiveRecord was doing for us before, we're just customizing the behavior a little bit.
+Now, we're only creating a new category if it doesn't already exist with the current name. We're also using a cool method called categories<<.  What's great about this is you can mentally think of this as two steps.  First, we call self.categories which returns an array of categories and then we call the shovel method to add our category object into the array.  We could imagine later calling save on the post object and this then creating the post_categories join record for us.  In reality, this is syntactic sugar for the categories<< method.  That's the actual method name and behind the scenes it will create the join record for us.  It's one of the methods dynamically created for us whenever we use the has_many association.  The end result is this method doing exactly what ActiveRecord was doing for us before, we're just customizing the behavior a little bit.
 
 ## Conclusion/So What?
 

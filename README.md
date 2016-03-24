@@ -174,7 +174,7 @@ class Post < ActiveRecord::Base
 end
 ```
 
-Voila! Just like when our models were directly related, we can now create categories that are automatically associated with our new post. Looking at the SQL that gets generated, we can see that it's creating new instances of our post_tags without us ever having to interact with them.
+Voila! Just like when our models were directly related, we can now create categories that are automatically associated with our new post. Looking at the SQL that gets generated, we can see that it's creating new instances of our post_categories without us ever having to interact with them.
 
 ```BASH
 (0.1ms)  begin transaction
@@ -210,3 +210,5 @@ As you can see, it doesn't really matter how complex our associations are - Acti
 
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/has-many-through-forms-rails' title='Has Many Through Forms Rails'>Has Many Through Forms Rails</a> on Learn.co and start learning to code for free.</p>
+
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/has-many-through-forms-rails'>Has Many Through in Forms</a> on Learn.co and start learning to code for free.</p>

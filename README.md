@@ -20,7 +20,7 @@ We've looked at the different ways we can interact with our associated models th
 Sometimes, it may be appropriate for a user to create an instance of our join model directly. Think back to the hospital domain from our previous lab. It makes perfect sense that a user would go to `appointments/new` and fill out a form to create a new appointment.
 
 ```erb
-<%= form_form @appointment do |f| %>
+<%= form_for @appointment do |f| %>
   <%= f.datetime_select :appointment_datetime %>
   <%= f.collection_select :doctor, Doctor.all, :id, :name %>
   <%= f.collection_select :patient, Patient.all, :id, :name %>
@@ -211,3 +211,5 @@ As you can see, it doesn't really matter how complex our associations are - Acti
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/has-many-through-forms-rails' title='Has Many Through Forms Rails'>Has Many Through Forms Rails</a> on Learn.co and start learning to code for free.</p>
 
+
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/has-many-through-forms-rails'>Has Many Through in Forms</a> on Learn.co and start learning to code for free.</p>

@@ -59,7 +59,12 @@ class PostCategory < ActiveRecord::Base
 end
 ```
 
-Now, let's make it so that our user can assign categories to a post when the post is created. We did this in a previous example without a join table. Our post was directly related to it's category, and the `categories` table had the foreign key for the post. Because of this, instances of our `post` class responded to a method called `category_ids=`. We called upon this method from our form helpers to build out a nested form.
+Now, let's make it so that our user can assign categories to a post when the
+post is created. We did this in a previous example without a join table. Our
+post was directly related to it's category, and the `posts` table had the
+foreign key for its category. Because of this, instances of our `post` class
+responded to a method called `category_ids=`. We called upon this method from
+our form helpers to build out a nested form.
 
 Luckily, `has_many, through` functions exactly the same as a has_many relationship. Instances of our `Post` class still respond to a method called `category_ids=`. We'll use a helper method very similar to the collection_select we used previously.
 
@@ -206,7 +211,7 @@ Now, we're only creating a new category if it doesn't already exist with the cur
 
 ## Conclusion/So What?
 
-As you can see, it doesn't really matter how complex our associations are - ActiveRecord is really good at managing that complexity for us. We can always drop down a level of abstraction if needed to customize the way our application behaves. 
+As you can see, it doesn't really matter how complex our associations are - ActiveRecord is really good at managing that complexity for us. We can always drop down a level of abstraction if needed to customize the way our application behaves.
 
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/has-many-through-forms-rails' title='Has Many Through Forms Rails'>Has Many Through Forms Rails</a> on Learn.co and start learning to code for free.</p>

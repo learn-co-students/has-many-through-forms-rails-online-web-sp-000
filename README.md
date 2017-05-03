@@ -140,7 +140,7 @@ We can now associate categories with our posts, but what about creating new cate
 First, we want a text field to enter the name of our new category. The value of the name should be nested under our `post_params`, so we don't have to add too much code to our controller. We can use the `fields_for` helper to do this very easily.
 
 ```erb
-# app/view/post/_form.html.erb
+# app/views/posts/_form.html.erb
 
 <%= form_for post do |f| %>
   <%= f.label "Title" %>
@@ -225,3 +225,5 @@ Now, we're only creating a new category if it doesn't already exist with the cur
 As you can see, it doesn't really matter how complex our associations are –– Active Record is really good at managing that complexity for us. We can always drop down a level of abstraction if needed to customize the way our application behaves.
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/has-many-through-forms-rails' title='Has Many Through Forms Rails'>Has Many Through Forms Rails</a> on Learn.co and start learning to code for free.</p>
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/has-many-through-forms-rails'>Has Many Through in Forms</a> on Learn.co and start learning to code for free.</p>

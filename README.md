@@ -134,7 +134,7 @@ We can now associate categories with our posts, but what about creating new cate
 First, we want a text field to enter the name of our new category. The value of the name should be nested under our `post_params`, so we don't have to add too much code to our controller. We can use the `fields_for` helper to do this very easily.
 
 ```erb
-# app/view/post/_form.html.erb
+# app/views/posts/_form.html.erb
 
 <%= form_for post do |f| %>
   <%= f.label "Title" %>

@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    #booty booty booty
   end
 
   def new

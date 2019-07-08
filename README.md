@@ -201,7 +201,7 @@ Still, there's a problem. We're creating a new category each time, regardless of
 class Post < ActiveRecord::Base
   has_many :post_categories
   has_many :categories, through: :post_categories
-  accepts_nested_attributes_for :categories
+  # accepts_nested_attributes_for :categories
 
   def categories_attributes=(category_attributes)
     category_attributes.values.each do |category_attribute|

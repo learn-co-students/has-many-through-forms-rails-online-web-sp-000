@@ -1,0 +1,6 @@
+<h1>Posts</h1>
+<ul>
+<% @posts.each do |p| %>
+  <li><%= link_to p.title, post_path(p) %> - <%= pluralize(p.categories.count, 'Category') %></li>
+<% end %>
+</ul>

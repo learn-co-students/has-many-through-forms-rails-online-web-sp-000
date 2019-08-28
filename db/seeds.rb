@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+categories = Hash[[
+  "Blues",
+  "Classic Rock",
+  "Country",
+  "Dance",
+  "Disco",
+  "Funk",
+  "Grunge",
+  "Hip-Hop"
+].map { |category| [category, Category.find_or_create_by(name: category)] }]

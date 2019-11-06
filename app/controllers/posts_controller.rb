@@ -12,6 +12,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    puts params
     post = Post.create(post_params)
     redirect_to post
   end

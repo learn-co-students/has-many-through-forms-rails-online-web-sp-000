@@ -221,3 +221,4 @@ As you can see, it doesn't really matter how complex our associations are ––
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/has-many-through-forms-rails' title='Has Many Through Forms Rails'>Has Many Through Forms Rails</a> on Learn.co and start learning to code for free.</p>
 
 <p class='util--hide'>View <a href='https://learn.co/lessons/has-many-through-forms-rails'>Has Many Through in Forms</a> on Learn.co and start learning to code for free.</p>
+p

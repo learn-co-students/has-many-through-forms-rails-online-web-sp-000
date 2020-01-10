@@ -2,6 +2,7 @@
 
 ## Objectives
 
+
 1. Construct a bi-directional has many through.
 2. Identify the join model in a has many through.
 3. Construct a nested params hash with data about the primary object and a has many through association.
@@ -95,7 +96,7 @@ class PostsController < ApplicationController
   ...
 
   private
-  
+
   def post_params
     params.require(:post).permit(:title, :content, category_ids:[])
   end
@@ -167,7 +168,7 @@ class PostsController < ApplicationController
   ...
 
   private
-  
+
   def post_params
     params.require(:post).permit(:title, :content, category_ids:[], categories_attributes: [:name])
   end

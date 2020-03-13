@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def create
+  def create #done
     post = Post.create(post_params)
     redirect_to post
   end

@@ -1,7 +1,8 @@
 class Post < ActiveRecord::Base
   has_many :post_categories
   has_many :categories, through: :post_categories
-
+  
+  # why does it want me to change the code???
 
   def categories_attributes=(category_attributes)
     category_attributes.values.each do |category_attribute|

@@ -11,3 +11,5 @@ class Post < ActiveRecord::Base
   end
 
 end
+
+#The Post Model

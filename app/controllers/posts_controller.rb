@@ -13,6 +13,7 @@ class PostsController < ApplicationController
 
   def create
     post = Post.create(post_params)
+    raise params.inspect
     redirect_to post
   end
 

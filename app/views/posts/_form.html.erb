@@ -10,5 +10,6 @@
   <%= f.fields_for :categories, post.categories.build do |categories_fields| %>
     <%= categories_fields.text_field :name %>
   <% end %>
+  <%= f.text_area :comment_content %>
   <%= f.submit %>
 <% end %>

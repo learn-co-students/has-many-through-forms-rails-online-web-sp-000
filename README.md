@@ -66,6 +66,8 @@ Now, let's make it so that our user can assign categories to a post when the pos
 
 Luckily, `has_many, through` functions exactly the same as a `has_many` relationship. Instances of our `Post` class still respond to a method called `category_ids=`. We'll use a helper method very similar to the `collection_select` we used previously.
 
+<!-- done -->
+
 ```erb
 # app/views/posts/_form.html.erb
 

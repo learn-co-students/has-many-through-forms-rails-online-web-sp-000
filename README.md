@@ -219,3 +219,4 @@ Now, we're only creating a new category if it doesn't already exist with the cur
 As you can see, it doesn't really matter how complex our associations are –– Active Record is really good at managing that complexity for us. We can always drop down a level of abstraction if needed to customize the way our application behaves.
 
 <p class='util--hide'>View <a href='https://learn.co/lessons/has-many-through-forms-rails'>Has Many Through in Forms</a> on Learn.co and start learning to code for free.</p>
+p

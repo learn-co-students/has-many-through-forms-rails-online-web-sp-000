@@ -1,4 +1,4 @@
-# Has Many Through Forms Rails
+# Has Many Through Forms Rails.
 
 ## Objectives
 

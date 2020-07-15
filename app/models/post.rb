@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  # add associations
   has_many :post_categories
   has_many :categories, through: :post_categories
 

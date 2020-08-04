@@ -8,8 +8,18 @@
   <%= f.label "Content" %>
   <%= f.text_area :content %>
   <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+  <!--text field to enter name of new category nested under post_params
+  takes in two arguments the associated model and an object
+  :categoreis association and built an empty cateogyr associated w the post
+  generates html
+-->
   <%= f.fields_for :categories, post.categories.build do |categories_fields| %>
     <%= categories_fields.text_field :name %>
   <% end %>
   <%= f.submit %>
 <% end %>
+
+
+<!-- user can assign categories to a post when the post is created
+instances of our post class respond to a method called category_ids=
+#associate categories iwth posts

@@ -1,14 +1,24 @@
 <div class=post-content>
   <%= @post.content %>
 </div>
+
+<h3>Add Post</h3>
 <%= form_for post do |f| %>
-  <%= f.label "Title" %>
+  <%= f.label "Title: " %>
   <%= f.text_field :title %>
-  <%= f.label "Content" %>
+  <br>
+  <%= f.label "Content: " %>
   <%= f.text_area :content %>
+  <br><br>
+
+  <h3>Add to Category</h3>
   <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+  <br><br>
   <%= f.fields_for :categories, post.categories.build do |categories_fields| %>
+    <%= categories_fields.label "New Category Name: " %>
     <%= categories_fields.text_field :name %>
   <% end %>
+  <br><br>
+
   <%= f.submit %>
 <% end %>

@@ -69,7 +69,7 @@ Luckily, `has_many, through` functions exactly the same as a `has_many` relation
 ```erb
 # app/views/posts/_form.html.erb
 
-<%= form_for post do |f| %>
+<%= form_for @post do |f| %>
   <%= f.label "Title" %>
   <%= f.text_field :title %>
   <%= f.label "Content" %>
@@ -136,7 +136,7 @@ First, we want a text field to enter the name of our new category. The value of 
 ```erb
 # app/views/posts/_form.html.erb
 
-<%= form_for post do |f| %>
+<%= form_for @post do |f| %>
   <%= f.label "Title" %>
   <%= f.text_field :title %>
   <%= f.label "Content" %>

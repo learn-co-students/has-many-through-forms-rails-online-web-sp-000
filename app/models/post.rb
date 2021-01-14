@@ -8,6 +8,6 @@ class Post < ActiveRecord::Base
       category = Category.find_or_create_by(category_attribute)
       self.post_categories.build(category: category)
     end
-  end
+  end 
 
 end

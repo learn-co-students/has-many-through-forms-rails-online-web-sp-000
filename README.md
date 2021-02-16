@@ -1,6 +1,6 @@
 # Has Many Through Forms Rails
 
-## Objectives
+## Objectives - done
 
 1. Construct a bi-directional has many through.
 2. Identify the join model in a has many through.

@@ -3,8 +3,6 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-  # THIS IS MY TEST LINE FOR SAVE REFERENCE ************
-
   def index
     @posts = Post.all
   end
